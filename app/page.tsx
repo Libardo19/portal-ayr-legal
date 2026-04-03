@@ -1,19 +1,17 @@
-import TopBar from './components/TopBar';
-import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import ServiciosJuridicos from './components/ServiciosJuridicos';
+import Header from './components/Header';
 
 export default function HomePage() {
   return (
-    <main>
-      <TopBar />
-      <Header />
+    <main className="bg-[#0B1120]">
       <Navbar />
       <Hero />
       <About />
       <ServiciosJuridicos />
+      <Header/>
     </main>
   );
 }

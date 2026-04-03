@@ -1,115 +1,183 @@
-import Image from "next/image";
-import Link from "next/link";
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Scale, HardHat, FileCheck, Map, ShieldCheck, Briefcase } from 'lucide-react';
 
 const PILLARS = [
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
-      </svg>
-    ),
-    title: "Derecho & Ingeniería",
-    desc: "La única firma interdisciplinaria en Valledupar que combina asesoría jurídica con soporte técnico de ingeniería.",
+    Icon: Scale,
+    title: 'Derecho & Ingeniería',
+    desc: 'La única firma interdisciplinaria en Valledupar que combina asesoría jurídica con soporte técnico de ingeniería.',
   },
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-      </svg>
-    ),
-    title: "Valledupar, Cesar",
-    desc: "Conocemos el territorio, sus conflictos prediales y su gente. Presencia local con capacidad técnica nacional.",
+    Icon: Map,
+    title: 'Valledupar, Cesar',
+    desc: 'Conocemos el territorio, sus conflictos prediales y su gente. Presencia local con capacidad técnica nacional.',
   },
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
-    title: "Defensa Integral",
-    desc: "Un solo equipo para su caso: abogados y geólogos trabajando juntos desde el diagnóstico hasta la solución.",
+    Icon: ShieldCheck,
+    title: 'Defensa Integral',
+    desc: 'Un solo equipo para su caso: abogados y geólogos trabajando juntos desde el diagnóstico hasta la solución.',
+  },
+];
+
+const EXPERTISE_CARDS = [
+  {
+    Icon: Scale,
+    title: 'Derecho Especializado',
+    desc: 'Abogados expertos en Derecho de Tierras, Administrativo y SST. Gestión de servidumbres y conflictos prediales.',
+  },
+  {
+    Icon: HardHat,
+    title: 'Ingeniería & Geología',
+    desc: 'Especialistas en Gestión Ambiental, estudios de suelos, geotecnia y soporte técnico para proyectos viales.',
+  },
+  {
+    Icon: Map,
+    title: 'Topografía de Precisión',
+    desc: 'Levantamientos topográficos, definición de linderos y verificación técnica para procesos judiciales.',
+  },
+  {
+    Icon: FileCheck,
+    title: 'Avalúos Certificados',
+    desc: 'Ingeniería de avalúos en 13 categorías. Fines judiciales, comerciales y financieros.',
   },
 ];
 
 export default function About() {
   return (
-    <section id="nosotros">
+    <section
+      id="nosotros"
+      className="relative w-full bg-[#0B1120] text-slate-200 py-20 overflow-hidden"
+    >
+      {/* Glows decorativos */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-yellow-600/10 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-      {/* ── TOP: Texto izquierda + Foto derecha ── */}
-      <div className="bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row min-h-[580px]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
-          {/* Left — Text */}
-          <div className="flex-1 flex flex-col justify-center px-8 md:px-14 py-16 lg:py-0">
-            <p className="font-bold uppercase tracking-widest text-xs mb-4" style={{ color: '#C8A75D' }}>
-              La Firma
+        {/* ── Cabecera ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center max-w-4xl mx-auto mb-20"
+        >
+          <span className="font-semibold tracking-widest text-sm uppercase mb-2 block" style={{ color: 'var(--ayr-gold)' }}>
+            La Firma
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            Derecho e Ingeniería,{' '}
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(to right, var(--ayr-gold), #EAD2AC)' }}
+            >
+              al servicio de su territorio.
+            </span>
+          </h2>
+          <p className="text-lg text-slate-400 leading-relaxed">
+            A&R Abogados e Ingenieros S.A.S es una firma interdisciplinaria fundada por dos
+            profesionales especializados que integran el derecho y la ingeniería para la defensa
+            del territorio, conflictos prediales y proyectos de infraestructura.
+          </p>
+        </motion.div>
+
+        {/* ── Grid narrativa + tarjetas ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+
+          {/* Columna izquierda: Narrativa */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h3 className="text-2xl font-bold text-white border-l-4 pl-4" style={{ borderColor: 'var(--ayr-gold)' }}>
+              Interdisciplinariedad Real
+            </h3>
+            <p className="text-slate-300 leading-relaxed text-justify">
+              Somos una firma que integra derecho, ingeniería, gestión ambiental, topografía y avalúos.
+              Nuestro enfoque es <strong>preventivo, estratégico y probatorio</strong>.
             </p>
-            <h2 className="text-[#102131] text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Derecho e Ingeniería,<br />
-              al servicio de<br />
-              su territorio.
-            </h2>
-            <p className="text-gray-500 text-base leading-relaxed mb-10 max-w-md">
-              A&amp;R Abogados e Ingenieros S.A.S es una firma interdisciplinaria
-              fundada por dos profesionales especializados que integran el derecho
-              y la ingeniería para la defensa del territorio, conflictos prediales
-              y proyectos de infraestructura.
+            <p className="text-slate-300 leading-relaxed text-justify">
+              Abordamos conflictos territoriales y proyectos de infraestructura entendiendo que la tierra
+              no es solo un bien jurídico, sino un elemento técnico, ambiental y económico que requiere
+              un análisis especializado.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
+
+            <div className="pt-4">
+              <ul className="space-y-3">
+                {['Defensa Jurídica del Territorio', 'Ingeniería Aplicada a Proyectos', 'Gestión Predial y Ambiental'].map(
+                  (item, i) => (
+                    <li key={i} className="flex items-center space-x-3 text-white">
+                      <span
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center"
+                        style={{ background: 'rgba(201,169,97,0.2)' }}
+                      >
+                        <ShieldCheck size={14} style={{ color: 'var(--ayr-gold)' }} />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <a
                 href="#contacto"
-                className="text-white font-bold py-3 px-8 rounded transition duration-300 uppercase text-sm tracking-wider hover:opacity-90"
-                style={{ backgroundColor: '#C8A75D' }}
+                className="font-bold py-3 px-8 rounded-lg transition duration-300 uppercase text-sm tracking-wider hover:opacity-90"
+                style={{ backgroundColor: 'var(--ayr-gold)', color: 'var(--ayr-blue-dark)' }}
               >
                 Solicitar Consulta
-              </Link>
-              <Link
-                href="#nosotros"
-                className="bg-[#102131] hover:bg-[#0d1a26] text-white font-bold py-3 px-8 rounded transition duration-300 uppercase text-sm tracking-wider"
+              </a>
+              <a
+                href="#juridico"
+                className="font-bold py-3 px-8 rounded-lg transition duration-300 uppercase text-sm tracking-wider"
+                style={{
+                  border: '1.5px solid rgba(201,169,97,0.4)',
+                  color: 'var(--ayr-gold)',
+                  background: 'rgba(201,169,97,0.08)',
+                }}
               >
-                Conocer la Firma
-              </Link>
+                Ver Servicios
+              </a>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right — Foto equipo */}
-          <div className="flex-1 relative flex items-end justify-center min-h-[420px] lg:min-h-0 overflow-hidden bg-white">
-            <div className="relative w-full h-full min-h-[420px]">
-              <Image
-                src="/imagenes/equipo.png"
-                alt="Andersson Acosta y Laura Rangel — Socios Fundadores A&R"
-                fill
-                className="object-contain object-bottom"
-                priority
-              />
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* ── BOTTOM: Barra de 3 pilares ── */}
-      <div className="bg-[#102131]">
-        <div className="max-w-7xl mx-auto px-8 md:px-14 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            {PILLARS.map((pillar) => (
-              <div key={pillar.title} className="flex flex-col items-start gap-3 px-0 md:px-8 py-8 md:py-0 first:pl-0 last:pr-0">
-                <div style={{ color: '#C8A75D' }}>
-                  {pillar.icon}
+          {/* Columna derecha: ExpertiseCards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {EXPERTISE_CARDS.map((card, i) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="group p-6 rounded-xl transition-colors duration-300"
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                }}
+                whileHover={{ borderColor: 'rgba(201,169,97,0.4)' } as any}
+              >
+                <div className="mb-4 transition-transform duration-300 group-hover:scale-110" style={{ color: 'var(--ayr-gold)' }}>
+                  <card.Icon size={28} />
                 </div>
-                <h4 className="text-white font-bold text-base tracking-wide">
-                  {pillar.title}
-                </h4>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {pillar.desc}
-                </p>
-              </div>
+                <h4 className="text-lg font-semibold text-white mb-2">{card.title}</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">{card.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
 
+       
+
+      </div>
     </section>
   );
 }
