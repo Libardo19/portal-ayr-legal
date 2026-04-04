@@ -361,11 +361,19 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Transición suave */}
+      {/* Transición progresiva hacia siguiente sección */}
       <div 
-        className="absolute bottom-0 left-0 w-full h-48 z-20 pointer-events-none"
+        className="absolute bottom-0 left-0 w-full h-64 z-20 pointer-events-none"
         style={{
-          background: 'linear-gradient(to top, var(--background) 0%, rgba(255, 255, 255, 0.5) 30%, transparent 100%)'
+          background: 'linear-gradient(to top, #f7f9fb 0%, rgba(247, 249, 251, 0.6) 30%, rgba(247, 249, 251, 0.2) 60%, transparent 100%)'
+        }}
+      />
+      
+      {/* Overlay de profundidad - crea sensación de capa inferior */}
+      <div 
+        className="absolute bottom-0 left-0 w-full h-32 z-10"
+        style={{
+          background: 'linear-gradient(to top, rgba(12, 20, 39, 0.08) 0%, transparent 100%)'
         }}
       />
     </section>

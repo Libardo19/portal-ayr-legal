@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,500;6..72,700&amp;family=Public+Sans:wght@300;400;600&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#45474c",
+                    "surface": "#f7f9fb",
+                    "surface-bright": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed": "#a6f4b5",
+                    "secondary-container": "#d5e3fd",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-fixed": "#0d1c2f",
+                    "primary-fixed-dim": "#bec6e0",
+                    "inverse-surface": "#2d3133",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#d5e3fd",
+                    "on-tertiary-container": "#559f67",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#dae2fd",
+                    "surface-tint": "#565e74",
+                    "on-primary-container": "#888fa7",
+                    "secondary": "#515f74",
+                    "surface-container": "#eceef0",
+                    "tertiary-fixed-dim": "#8bd79b",
+                    "primary": "#0c1427",
+                    "on-secondary-container": "#57657b",
+                    "inverse-primary": "#bec6e0",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#001907",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#b9c7e0",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "outline": "#75777d",
+                    "on-tertiary-fixed": "#00210b",
+                    "background": "#f7f9fb",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#003013",
+                    "on-tertiary-fixed-variant": "#005226",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed": "#131b2e",
+                    "primary-container": "#21283c",
+                    "outline-variant": "#c5c6cd",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-fixed-variant": "#3a485c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Public Sans", "sans-serif"],
+                    "label": ["Space Grotesk", "monospace"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(197, 198, 205, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(197, 198, 205, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .asymmetric-offset {
+            margin-left: 8.333333%;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 rounded-none bg-slate-50/90 dark:bg-slate-900/90 backdrop-blur-md border-b-[0.5px] border-slate-200 dark:border-slate-800 transition-all duration-300 ease-in-out flex justify-between items-center px-12 py-6 max-w-full">
+<div class="text-lg font-bold tracking-widest uppercase text-slate-900 dark:text-slate-100 font-label">
+            ARCHIVUM INSTITUTIONAL
+        </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-900 dark:text-white border-b border-slate-900 dark:border-white pb-1 font-label text-xs uppercase tracking-widest" href="#">La Firma</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-label text-xs uppercase tracking-widest" href="#">Servicios</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-label text-xs uppercase tracking-widest" href="#">Casos</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-label text-xs uppercase tracking-widest" href="#">Contacto</a>
+</div>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-6 py-2 text-xs font-label uppercase tracking-widest transition-all duration-300 hover:bg-primary-container">Evaluar mi caso</button>
+</div>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- SECTION: LA FIRMA -->
+<section class="relative overflow-hidden bg-surface-bright py-24 blueprint-grid" id="la-firma">
+<!-- Hairline decoration -->
+<div class="absolute left-12 top-0 h-full w-[0.5px] bg-outline-variant opacity-40"></div>
+<div class="container mx-auto px-12 relative z-10">
+<div class="flex flex-col md:flex-row gap-16 items-start">
+<!-- LEFT COLUMN: DOMINANT (65%) -->
+<div class="w-full md:w-[65%] space-y-12">
+<div class="space-y-4">
+<span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant block">Referencia: Institución Técnica</span>
+<h2 class="font-headline text-5xl md:text-6xl font-light text-primary leading-tight max-w-2xl">
+                                Derecho e Ingeniería al servicio del territorio
+                            </h2>
+</div>
+<div class="max-w-xl">
+<p class="text-lg text-on-surface-variant font-body font-light leading-relaxed">
+                                Operamos en la convergencia crítica de la precisión técnica y el rigor legal. Nuestra metodología integra cartografía avanzada de ingeniería con la defensa jurídica especializada para garantizar la seguridad de la propiedad y el desarrollo ordenado del suelo.
+                            </p>
+</div>
+<!-- Capabilities with Vertical Line Markers -->
+<div class="space-y-6">
+<div class="flex items-start gap-6 group">
+<div class="w-[1px] h-12 bg-primary transition-all duration-300 group-hover:h-16"></div>
+<div class="pt-1">
+<h4 class="font-label text-sm uppercase tracking-widest text-primary font-bold">Defensa jurídica del territorio</h4>
+<p class="text-sm text-on-surface-variant font-light mt-1">Protección legal integral contra litigios de propiedad y deslinde territorial.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 group">
+<div class="w-[1px] h-12 bg-primary transition-all duration-300 group-hover:h-16"></div>
+<div class="pt-1">
+<h4 class="font-label text-sm uppercase tracking-widest text-primary font-bold">Ingeniería aplicada a conflictos prediales</h4>
+<p class="text-sm text-on-surface-variant font-light mt-1">Análisis multitemporal y levantamientos GNSS de alta precisión para resolución de conflictos.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 group">
+<div class="w-[1px] h-12 bg-primary transition-all duration-300 group-hover:h-16"></div>
+<div class="pt-1">
+<h4 class="font-label text-sm uppercase tracking-widest text-primary font-bold">Gestión ambiental y avalúos técnicos</h4>
+<p class="text-sm text-on-surface-variant font-light mt-1">Determinación técnica de valores comerciales y cumplimiento de normatividad ecológica.</p>
+</div>
+</div>
+</div>
+<!-- Metrics Block -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-outline-variant/30 pt-12">
+<div>
+<div class="font-headline text-4xl text-primary">+15</div>
+<div class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mt-2">Años de Trayectoria</div>
+</div>
+<div>
+<div class="font-headline text-4xl text-primary">+200</div>
+<div class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mt-2">Proyectos Ejecutados</div>
+</div>
+<div>
+<div class="font-headline text-4xl text-primary">+500</div>
+<div class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mt-2">Casos Resueltos</div>
+</div>
+</div>
+<!-- CTA Cluster -->
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-label text-xs uppercase tracking-widest transition-all hover:bg-primary-container shadow-sm">
+                                Solicitar diagnóstico predial
+                            </button>
+<button class="border border-primary text-primary px-8 py-4 font-label text-xs uppercase tracking-widest transition-all hover:bg-surface-container-high">
+                                Evaluar mi caso
+                            </button>
+</div>
+</div>
+<!-- RIGHT COLUMN: VISUAL (35%) -->
+<div class="w-full md:w-[35%] relative">
+<div class="relative bg-surface-container-lowest border border-outline-variant/20 p-4 shadow-xl">
+<!-- Technical Map Visualization -->
+<div class="aspect-[3/4] bg-surface-container overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
+<img alt="Topographic technical map" class="w-full h-full object-cover opacity-60 mix-blend-multiply" data-alt="Monochrome professional topographic map overlay with detailed elevation lines and contour labels on textured archival paper background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaG0JQsC-8ovZQuqUAVlqYp5d4tMKJX4Y_xjR1w3izgTuWoZjPH6KXlcPzbux6RbOzgmcQtMK6PHU4pdxh_EuyUJco2YlaMd-nQB7gSjkZIUzLIgfWy1ZdsZ9Zbbzz6CisSfnqKf2KbrqpIKbB3NYXVLJTyGbErZWO1P1lI2WmnefJjo8yutpg2XnLjLguw4I8a2IQ-Ggd8HnPkexD0BJ91rREWcdH4c6QYSKo_qd0EtJdR2QmAYJFe7BbPsWHmdmOQTja-nG8eqw"/>
+<!-- Stylized SVG Overlay for Topo Lines -->
+<svg class="absolute inset-0 w-full h-full opacity-40" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,20 Q25,15 50,30 T100,20" fill="none" stroke="#0c1427" stroke-width="0.1"></path>
+<path d="M0,40 Q30,35 60,50 T100,45" fill="none" stroke="#0c1427" stroke-width="0.1"></path>
+<path d="M0,60 Q20,65 45,75 T100,65" fill="none" stroke="#0c1427" stroke-width="0.1"></path>
+<circle cx="65" cy="45" fill="none" r="1.5" stroke="#ba1a1a" stroke-width="0.2"></circle>
+<line stroke="#0c1427" stroke-dasharray="1,1" stroke-width="0.05" x1="65" x2="65" y1="0" y2="100"></line>
+<line stroke="#0c1427" stroke-dasharray="1,1" stroke-width="0.05" x1="0" x2="100" y1="45" y2="45"></line>
+</svg>
+<!-- Technical Labels -->
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-2 py-1 font-label text-[9px] uppercase tracking-tighter">
+                                    Límite Predial: Sector 04-A
+                                </div>
+<div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm border border-outline-variant p-2 font-label text-[9px] text-primary space-y-1">
+<div>LAT: 10.3910° N</div>
+<div>LON: 75.4794° W</div>
+<div class="text-error font-bold mt-1">ZONA EN DISPUTA</div>
+</div>
+</div>
+<!-- Annotation Side Bar -->
+<div class="mt-4 flex justify-between items-end border-t border-outline-variant/30 pt-4">
+<div>
+<span class="font-label text-[10px] text-on-surface-variant block uppercase">Survey Sheet No.</span>
+<span class="font-label text-xs font-bold text-primary">COD-2024-X-77</span>
+</div>
+<div class="text-right">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="architecture">architecture</span>
+</div>
+</div>
+</div>
+<!-- Absolute positioned decorative corner -->
+<div class="absolute -bottom-8 -left-8 w-32 h-32 border-b border-l border-primary opacity-20 pointer-events-none"></div>
+</div>
+</div>
+</div>
+<!-- Side annotation on the far right of the screen -->
+<div class="hidden lg:block absolute right-4 top-1/2 -rotate-90 origin-right">
+<span class="font-label text-[10px] uppercase tracking-[0.5em] text-outline opacity-50 whitespace-nowrap">ARCHIVUM TECHNICAL FIRM // PROPERTY RIGHTS &amp; ENGINEERING</span>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-none border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full">
+<div class="mb-4 md:mb-0">
+<div class="text-sm font-black text-slate-900 dark:text-slate-100 font-label tracking-widest">
+                ARCHIVUM INSTITUTIONAL
+            </div>
+<p class="font-label text-xs uppercase tracking-widest opacity-60 mt-2">© 2024 Institutional Technical Firm. Legal &amp; Engineering Cartography.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label text-xs uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-primary transition-opacity duration-200" href="#">Privacidad</a>
+<a class="font-label text-xs uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-primary transition-opacity duration-200" href="#">Términos</a>
+<a class="font-label text-xs uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-primary transition-opacity duration-200" href="#">Colegiatura</a>
+<a class="font-label text-xs uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-primary transition-opacity duration-200" href="#">Propiedad Intelectual</a>
+</div>
+</footer>
+</body></html>

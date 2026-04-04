@@ -1,0 +1,9 @@
+export const WHATSAPP_NUMBER = '573174685371';
+export const WHATSAPP_BASE   = `https://wa.me/${WHATSAPP_NUMBER}`;
+export const EMAIL    = 'info@ar-abogadoseingenieros.com';
+export const TELEFONO = '+57 317 468 5371';
+export const CIUDAD   = 'Valledupar, Cesar — Colombia';
+export const WA_DIAGNOSTICO = encodeURIComponent('Hola, me gustaría solicitar un diagnóstico predial con A&R Abogados e Ingenieros.');
+export const WA_EVALUAR = encodeURIComponent('Hola, quisiera evaluar mi caso con A&R Abogados e Ingenieros.');
+export const WA_ASESORIA = encodeURIComponent('Hola, quisiera solicitar una asesoría jurídica con A&R Abogados e Ingenieros.');
+export const WA_PROTOCOLOS = encodeURIComponent('Hola, quisiera recibir los protocolos técnicos de A&R Abogados e Ingenieros.');
