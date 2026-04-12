@@ -2,6 +2,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FirmaSection from './components/FirmaSection';
 import ServiciosJuridicosSection from './components/ServiciosJuridicosSection';
+import Ingenieria from './components/ingenieria';
+import Avaluos from './components/avaluos';
+import Header from './components/Header';
 
 export default function HomePage() {
   return (
@@ -10,6 +13,9 @@ export default function HomePage() {
       <Hero />
       <FirmaSection />
       <ServiciosJuridicosSection />
+      <Ingenieria/>
+      <Avaluos/>
+      <Header/>
     </main>
   );
 }
