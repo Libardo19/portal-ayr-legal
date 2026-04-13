@@ -1,9 +1,9 @@
-"use client";
-import { useEffect, useRef } from "react";
+    "use client";
+    import { useEffect, useRef } from "react";
 
-interface ServiceItem { num: string; icon: React.ReactNode; name: string; desc: string; }
-interface CounterProps { target: number; suffix: string; label: string; delay: number; }
-type BracketKey = "tl" | "tr" | "bl" | "br";
+    interface ServiceItem { num: string; icon: React.ReactNode; name: string; desc: string; }
+    interface CounterProps { target: number; suffix: string; label: string; delay: number; }
+    type BracketKey = "tl" | "tr" | "bl" | "br";
 
     const services: ServiceItem[] = [
     {
@@ -32,14 +32,8 @@ type BracketKey = "tl" | "tr" | "bl" | "br";
     },
     ];
 
-    const counters = [
-    { id: "ing-c1", target: 500, suffix: "+", label: "Estudios emitidos" },
-    { id: "ing-c2", target: 20,  suffix: "+", label: "Años en campo" },
-    { id: "ing-c3", target: 47,  suffix: "",  label: "Proyectos activos" },
-    ];
-
     const techLabels = ["GEO", "AMB", "VIA"];
-    const techCx     = [245, 490, 735];
+    const techCx = [245, 490, 735];
 
     const bracketPos: Record<BracketKey, string> = {
     tl: "top-8 left-8", tr: "top-8 right-8",
@@ -83,11 +77,11 @@ type BracketKey = "tl" | "tr" | "bl" | "br";
     return (
         <>
         {keys.map((k) => {
-            const isTop  = k.startsWith("t");
+            const isTop = k.startsWith("t");
             const isLeft = k.endsWith("l");
             const { v, h } = bracketDelays[k];
             const edge = {
-            ...(isTop  ? { top: 0 }  : { bottom: 0 }),
+            ...(isTop ? { top: 0 } : { bottom: 0 }),
             ...(isLeft ? { left: 0 } : { right: 0 }),
             };
             return (
@@ -104,7 +98,8 @@ type BracketKey = "tl" | "tr" | "bl" | "br";
 
     export default function Ingenieria() {
     return (
-        <section id="ingenieria" className="bg-white overflow-hidden relative">
+        // ✅ bg-white restaurado, sin overflow-hidden
+        <section id="ingenieria" className="relative bg-white">
 
         {/* Grid overlay */}
         <div
@@ -123,31 +118,16 @@ type BracketKey = "tl" | "tr" | "bl" | "br";
             }}
         />
 
-        {/* Sombra top */}
-        <div
-            className="absolute top-0 left-0 w-full h-40 pointer-events-none z-10"
-            style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, transparent 100%)" }}
-        />
-
-        {/* Sombra bottom */}
-        <div
-            className="absolute bottom-0 left-0 w-full h-40 pointer-events-none z-10"
-            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 100%)" }}
-        />
-
         <Brackets />
 
         {/* Hero */}
-        <div className="relative z-20 px-14 pt-20 pb-14 max-w-[1120px] mx-auto">
-
-            {/* Float tag */}
-            <div className="absolute top-20 right-14 border border-[#c9a84c]/25 rounded-lg px-5 py-4 bg-[#0a1628] animate-[fadeIn_0.6s_1.4s_both]">
+        <div className="relative z-20 px-14 pt-28 pb-14 max-w-[1120px] mx-auto">
+            <div className="absolute top-28 right-14 border border-[#c9a84c]/25 rounded-lg px-5 py-4 bg-[#0a1628] animate-[fadeIn_0.6s_1.4s_both]">
             <p className="font-mono text-[9px] text-[#4a6a8a] tracking-[2px] mb-2">// Sistema activo</p>
             <p className="font-mono text-xl font-bold text-[#e8c96a]">ISO 9001</p>
             <p className="text-[11px] text-[#4a6a8a] mt-1">Certificación 2015 · Vigente</p>
             </div>
 
-            {/* Status bar */}
             <div className="flex items-center gap-4 mb-10 animate-[fadeUp_0.5s_0.6s_both]">
             <span className="w-2 h-2 rounded-full bg-[#c9a84c] animate-pulse" />
             <span className="font-mono text-[10px] text-[#c9a84c] tracking-[2px] uppercase">Ingeniería · A&amp;R</span>
@@ -155,7 +135,6 @@ type BracketKey = "tl" | "tr" | "bl" | "br";
             <span className="font-mono text-[10px] text-[#4a6a8a] tracking-[1px]">SYS_ENG · V2.0</span>
             </div>
 
-            {/* Headline */}
             <h2 className="text-[62px] font-bold leading-none animate-[fadeUp_0.7s_0.8s_both]">
             <span className="block text-[#0b1826]">Ingeniería</span>
             <span className="block" style={{ color: "transparent", WebkitTextStroke: "1.5px #c9a84c" }}>de precisión.</span>
@@ -165,13 +144,6 @@ type BracketKey = "tl" | "tr" | "bl" | "br";
             <p className="text-[14px] text-[#4a6a8a] leading-[1.7] max-w-[500px] mt-5 animate-[fadeUp_0.6s_1.1s_both]">
             Geotecnia, gestión ambiental e infraestructura al servicio de su defensa. Donde la técnica se convierte en el argumento más sólido de su caso.
             </p>
-
-            {/* Counters */}
-            <div className="flex mt-12 animate-[fadeUp_0.6s_1.3s_both]">
-            {counters.map((c, i) => (
-                <Counter key={c.id} target={c.target} suffix={c.suffix} label={c.label} delay={1400 + i * 200} />
-            ))}
-            </div>
         </div>
 
         {/* Tech line SVG */}
@@ -199,7 +171,7 @@ type BracketKey = "tl" | "tr" | "bl" | "br";
         </div>
 
         {/* Services grid */}
-        <div className="relative z-20 max-w-[1120px] mx-auto">
+        <div className="relative z-20 max-w-[1120px] mx-auto pb-40">
             <div
             className="grid grid-cols-4"
             style={{
@@ -231,24 +203,14 @@ type BracketKey = "tl" | "tr" | "bl" | "br";
             </div>
         </div>
 
-        {/* CTA */}
+        {/* ✅ Sombra bottom: va de transparente a #060f1a (color exacto de Avalúos) */}
         <div
-            className="relative z-20 flex items-center justify-between px-14 py-8 border-t border-[#c9a84c]/10 max-w-[1120px] mx-auto gap-6"
-            style={{ animation: "fadeUp 0.5s 2.2s both" }}
-        >
-            <div className="flex items-center gap-4">
-            <span className="font-mono text-[11px] text-[#4a6a8a] tracking-[1px]">→ siguiente paso</span>
-            <span className="text-[18px] font-semibold text-[#0b1826]">¿Su proyecto necesita soporte técnico especializado?</span>
-            </div>
-            <div className="flex gap-3 shrink-0">
-            <button className="bg-[#c9a84c] text-[#060f1a] text-[12px] font-bold tracking-[1.5px] uppercase px-7 py-3 rounded-md">
-                Solicitar Peritaje
-            </button>
-            <button className="bg-transparent text-[#c9a84c] text-[12px] font-bold tracking-[1.5px] uppercase px-7 py-3 rounded-md border border-[#c9a84c]/30">
-                Ver Proyectos
-            </button>
-            </div>
-        </div>
+            className="absolute bottom-0 left-0 w-full pointer-events-none z-50"
+            style={{
+            height: "160px",
+            background: "linear-gradient(to bottom, transparent 0%, #060f1a 100%)",
+            }}
+        />
 
         <style>{`
             @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }

@@ -9,7 +9,6 @@ import { WHATSAPP_BASE, WA_ASESORIA } from '../libs/contacto';
 const NAV_ITEMS = [
   { label: 'Inicio',              href: '#inicio' },
   { label: 'La Firma',            href: '#nosotros' },
-  { label: 'Experticia',          href: '#experticia' },
   { label: 'Servicios Jurídicos', href: '#juridico' },
   { label: 'Ingeniería',          href: '#ingenieria' },
   { label: 'Avalúos',             href: '#avaluos' },

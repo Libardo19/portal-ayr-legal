@@ -150,6 +150,7 @@ export default function ServiciosJuridicosSection() {
       id="servicios"
       className="relative bg-[#0c1427] overflow-hidden"
     >
+      {/* Grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -158,7 +159,23 @@ export default function ServiciosJuridicosSection() {
         }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-20 relative z-10">
+      {/* ── SOMBRA TOP: viene del Hero oscuro → continuidad suave ── */}
+      <div
+        className="absolute top-0 left-0 w-full h-32 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to bottom, #0a1628 0%, rgba(10,22,40,0.5) 40%, transparent 100%)',
+        }}
+      />
+
+      {/* ── SOMBRA BOTTOM: azul oscuro → blanco de Ingeniería ── */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-48 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.2) 60%, transparent 100%)',
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-20 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -176,7 +193,6 @@ export default function ServiciosJuridicosSection() {
             cartográfica para blindar la propiedad privada y la gestión institucional de la tierra.
           </p>
 
-          {/* Protocolos → WhatsApp */}
           <a
             href={`${WHATSAPP_BASE}?text=${WA_PROTOCOLOS}`}
             target="_blank"
@@ -207,7 +223,7 @@ export default function ServiciosJuridicosSection() {
         </motion.div>
       </div>
 
-      <div className="w-full h-12 border-t border-white/[0.05] flex items-center justify-between px-4 md:px-12">
+      <div className="relative z-20 w-full h-12 border-t border-white/[0.05] flex items-center justify-between px-4 md:px-12">
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 bg-[#C8A75D] rounded-full animate-pulse" />
           <span className="font-mono text-[8px] uppercase tracking-widest text-white/30">

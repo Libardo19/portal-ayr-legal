@@ -4,7 +4,7 @@ import FirmaSection from './components/FirmaSection';
 import ServiciosJuridicosSection from './components/ServiciosJuridicosSection';
 import Ingenieria from './components/ingenieria';
 import Avaluos from './components/avaluos';
-import Header from './components/Header';
+import Header from './components/footer';
 
 export default function HomePage() {
   return (

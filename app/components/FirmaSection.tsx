@@ -84,12 +84,19 @@ export default function FirmaSection() {
         backgroundSize: '40px 40px',
       }}
     >
+     
+
+      {/* ✅ Sombra bottom → fusión hacia la sección siguiente (oscura #0c1427) — ya existía, corregida */}
       <div
-        className="absolute bottom-0 left-0 w-full h-40 sm:h-48 pointer-events-none z-10"
-        style={{ background: 'linear-gradient(to bottom, transparent 0%, #0c1427 100%)' }}
+        className="absolute bottom-0 left-0 w-full pointer-events-none z-10"
+        style={{
+          height: '160px',
+          background: 'linear-gradient(to bottom, transparent 0%, #0c1427 100%)',
+        }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 py-16 sm:py-20 relative z-20">
+      {/* ✅ pb y pt generosos para que las sombras no tapen el contenido */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 py-32 sm:py-40 relative z-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
