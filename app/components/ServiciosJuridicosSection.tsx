@@ -75,10 +75,10 @@ function ServicioItem({
   return (
     <motion.div
       variants={itemVariants}
-      className={`group relative cursor-pointer transition-colors duration-200 ${isOpen ? 'bg-white/[0.05]' : 'hover:bg-white/[0.025]'}`}
+      className={`group relative cursor-pointer transition-colors duration-200 ${isOpen ? 'bg-white/5' : 'hover:bg-white/[0.025]'}`}
       onClick={onToggle}
     >
-      <div className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#C8A75D] transition-opacity duration-200 ${isOpen ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'}`} />
+      <div className={`absolute left-0 top-0 bottom-0 w-0.5 bg-[#C8A75D] transition-opacity duration-200 ${isOpen ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'}`} />
 
       <div className="px-6 md:px-8 py-5 md:py-6 border-b border-white/[0.06]">
         <div className="flex items-center gap-4">
@@ -91,7 +91,7 @@ function ServicioItem({
               <h3 className={`font-serif text-base md:text-lg transition-colors duration-200 ${isOpen ? 'text-[#C8A75D]' : 'text-white group-hover:text-[#C8A75D]'}`}>
                 {servicio.titulo}
               </h3>
-              <span className="font-mono text-[8px] text-white/25 tracking-widest uppercase hidden sm:inline">
+              <span className="font-mono text-[8px] text-[#C8A75D] tracking-widest uppercase hidden sm:inline">
                 {servicio.ref}
               </span>
             </div>
@@ -120,17 +120,6 @@ function ServicioItem({
               <p className="text-sm text-white/65 leading-relaxed mt-3 pl-10 md:pl-12 pr-6">
                 {servicio.descripcion}
               </p>
-              <div className="mt-4 pl-10 md:pl-12 pb-1">
-                <a
-                  href={`${WHATSAPP_BASE}?text=${servicio.waMsg}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={e => e.stopPropagation()}
-                  className="inline-block font-mono text-[10px] uppercase tracking-widest text-[#C8A75D] border border-[#C8A75D]/40 px-4 py-2 hover:bg-[#C8A75D]/10 transition-colors duration-200"
-                >
-                  Solicitar asesoría →
-                </a>
-              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -147,10 +136,9 @@ export default function ServiciosJuridicosSection() {
   return (
     <section
       ref={sectionRef}
-      id="servicios"
+      id="juridico"
       className="relative bg-[#0c1427] overflow-hidden"
     >
-      {/* Grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -159,20 +147,14 @@ export default function ServiciosJuridicosSection() {
         }}
       />
 
-      {/* ── SOMBRA TOP: viene del Hero oscuro → continuidad suave ── */}
       <div
         className="absolute top-0 left-0 w-full h-32 pointer-events-none z-10"
-        style={{
-          background: 'linear-gradient(to bottom, #0a1628 0%, rgba(10,22,40,0.5) 40%, transparent 100%)',
-        }}
+        style={{ background: 'linear-gradient(to bottom, #0a1628 0%, rgba(10,22,40,0.5) 40%, transparent 100%)' }}
       />
 
-      {/* ── SOMBRA BOTTOM: azul oscuro → blanco de Ingeniería ── */}
       <div
         className="absolute bottom-0 left-0 w-full h-48 pointer-events-none z-10"
-        style={{
-          background: 'linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.2) 60%, transparent 100%)',
-        }}
+        style={{ background: 'linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.2) 60%, transparent 100%)' }}
       />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-20 relative z-20">
@@ -188,22 +170,10 @@ export default function ServiciosJuridicosSection() {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-light leading-tight mb-5">
             Áreas de defensa jurídica del territorio
           </h2>
-          <p className="text-white/50 text-sm sm:text-base leading-relaxed">
+          <p className="text-white text-sm sm:text-base leading-relaxed">
             En la intersección del derecho y la ingeniería topográfica, operamos con precisión
             cartográfica para blindar la propiedad privada y la gestión institucional de la tierra.
           </p>
-
-          <a
-            href={`${WHATSAPP_BASE}?text=${WA_PROTOCOLOS}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 flex items-center gap-4 group w-fit"
-          >
-            <div className="w-10 h-[1px] bg-white/25 group-hover:w-16 group-hover:bg-[#C8A75D] transition-all duration-300" />
-            <span className="font-mono text-[9px] uppercase tracking-widest text-white/40 group-hover:text-[#C8A75D] transition-colors duration-200">
-              Descargar Protocolos Técnicos
-            </span>
-          </a>
         </motion.div>
 
         <motion.div

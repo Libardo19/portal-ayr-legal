@@ -84,7 +84,6 @@ export default function FirmaSection() {
         backgroundSize: '40px 40px',
       }}
     >
-     
 
       {/* ✅ Sombra bottom → fusión hacia la sección siguiente (oscura #0c1427) — ya existía, corregida */}
       <div
@@ -105,7 +104,7 @@ export default function FirmaSection() {
         >
           <div className="w-full md:w-[60%] space-y-8 sm:space-y-10">
             <motion.div variants={itemVariants} className="space-y-3">
-              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#45474c] block">
+              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-black block">
                 Referencia: Institución Técnica
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#0c1427] leading-tight">
@@ -114,7 +113,7 @@ export default function FirmaSection() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <p className="text-base sm:text-lg text-[#45474c] font-light leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-black font-light leading-relaxed max-w-xl">
                 Operamos en la convergencia crítica de la precisión técnica y el rigor legal.
                 Nuestra metodología integra cartografía avanzada de ingeniería con la defensa
                 jurídica especializada para garantizar la seguridad de la propiedad y el
@@ -134,24 +133,7 @@ export default function FirmaSection() {
               <Counter value={500} suffix="+" label="Casos Resueltos" delay={0.3} />
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-              <a
-                href={`${WHATSAPP_BASE}?text=${WA_DIAGNOSTICO}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#0c1427] text-white px-6 sm:px-8 py-3.5 sm:py-4 font-mono text-[10px] sm:text-xs uppercase tracking-widest hover:bg-[#21283c] transition-colors duration-200 shadow-sm w-full sm:w-auto text-center"
-              >
-                Solicitar diagnóstico predial
-              </a>
-              <a
-                href={`${WHATSAPP_BASE}?text=${WA_EVALUAR}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-[#0c1427] text-[#0c1427] px-6 sm:px-8 py-3.5 sm:py-4 font-mono text-[10px] sm:text-xs uppercase tracking-widest hover:bg-[#e6e8ea] transition-colors duration-200 w-full sm:w-auto text-center"
-              >
-                Evaluar mi caso
-              </a>
-            </motion.div>
+            
           </div>
 
           <div className="w-full md:w-[40%] relative hidden sm:block">

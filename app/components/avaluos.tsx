@@ -113,17 +113,11 @@
         <Brackets />
 
         <div className="relative z-10 px-14 pt-20 pb-14 max-w-[1120px] mx-auto">
-            <div className="absolute top-20 right-14 border border-[#c9a84c]/25 rounded-lg px-5 py-4 bg-[#0a1628]/85 animate-[fadeIn_0.6s_1.4s_both]">
-            <p className="font-mono text-[9px] text-[#4a6a8a] tracking-[2px] mb-2">// Cobertura total</p>
-            <p className="font-mono text-xl font-bold text-[#e8c96a]">13 categ.</p>
-            <p className="text-[11px] text-[#4a6a8a] mt-1">Fines judiciales · comerciales · financieros</p>
-            </div>
+           
 
             <div className="flex items-center gap-4 mb-10 animate-[fadeUp_0.5s_0.6s_both]">
             <span className="w-2 h-2 rounded-full bg-[#c9a84c] animate-pulse" />
-            <span className="font-mono text-[10px] text-[#c9a84c] tracking-[2px] uppercase">Avalúos · A&amp;R</span>
-            <span className="flex-1 h-px bg-[#c9a84c]/15" />
-            <span className="font-mono text-[10px] text-[#4a6a8a] tracking-[1px]">SYS_VAL · V2.0</span>
+            <span className="font-mono text-[15px] text-[#c9a84c] tracking-[2px] uppercase">Avalúos · A&amp;R</span>
             </div>
 
             <h2 className="text-[62px] font-bold leading-none text-[#e8f0f8] animate-[fadeUp_0.7s_0.8s_both]">
@@ -162,12 +156,12 @@
 
         {/* ✅ pb-40 para dar espacio a la sombra bottom */}
         <div className="relative z-10 px-14 max-w-[1120px] mx-auto pb-40">
-            <p className="font-mono text-[10px] text-[#4a6a8a] tracking-[3px] uppercase mb-5">// Categorías de valoración</p>
+            <p className="font-mono text-[10px] text-white tracking-[3px] uppercase mb-5">// Categorías de valoración</p>
             <div className="grid grid-cols-4" style={{ gap: "1px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.1)", borderRadius: "12px 12px 0 0", overflow: "hidden" }}>
             {categories.map((c, i) => (
                 <div key={i} className="bg-[#0a1628] px-5 py-6 cursor-pointer hover:bg-[#0e1e35] transition-colors" style={{ animation: `fadeUp 0.4s ${1.7 + i * 0.1}s both` }}>
-                <p className="font-mono text-[9px] text-[#4a6a8a] tracking-[2px] mb-3">{c.num}</p>
-                <p className="text-[13px] font-semibold text-[#e8f0f8] leading-snug mb-2">{c.name}</p>
+                <p className="font-mono text-[9px] text-white tracking-[2px] mb-3">{c.num}</p>
+                <p className="text-[13px] font-semibold text-white leading-snug mb-2">{c.name}</p>
                 <span className="font-mono text-[9px] text-[#c9a84c] bg-[#c9a84c]/10 px-2 py-1 rounded tracking-[1px]">{c.tag}</span>
                 </div>
             ))}
@@ -177,8 +171,8 @@
                 <div key={i} className="bg-[#0e1e35] px-7 py-7 flex items-center gap-5">
                 <div className="shrink-0 w-10 h-10 border border-[#c9a84c]/20 rounded-lg flex items-center justify-center">{w.icon}</div>
                 <div>
-                    <p className="text-[14px] font-semibold text-[#e8f0f8] mb-1">{w.title}</p>
-                    <p className="text-[12px] text-[#4a6a8a] leading-relaxed">{w.desc}</p>
+                    <p className="text-[14px] font-semibold text-white mb-1">{w.title}</p>
+                    <p className="text-[12px] text-white leading-relaxed">{w.desc}</p>
                 </div>
                 </div>
             ))}

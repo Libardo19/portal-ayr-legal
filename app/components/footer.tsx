@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-white text-[#0c1427]">
+    <footer id="contacto" className="relative bg-white text-[#0c1427]"> {/* ✅ id agregado */}
 
       {/* Grid overlay */}
       <div
@@ -39,33 +39,18 @@ export default function Footer() {
             <p className="text-[13px] text-[#45474c] leading-relaxed font-light">
               Derecho e ingeniería al servicio del territorio. Defensa técnica y jurídica con precisión probatoria.
             </p>
-            {/* Social */}
             <div className="flex gap-3 mt-6">
-              <a
-                href="#"
-                className="w-9 h-9 border border-[#0c1427]/15 flex items-center justify-center hover:border-[#0c1427]/50 transition-colors"
-                aria-label="Instagram"
-              >
+              <a href="#" className="w-9 h-9 border border-[#0c1427]/15 flex items-center justify-center hover:border-[#0c1427]/50 transition-colors" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-[#45474c] stroke-[1.5]">
                   <rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
                 </svg>
               </a>
-              <a
-                href={`${WHATSAPP_BASE}?text=${WA_DIAGNOSTICO}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 border border-[#0c1427]/15 flex items-center justify-center hover:border-[#0c1427]/50 transition-colors"
-                aria-label="WhatsApp"
-              >
+              <a href={`${WHATSAPP_BASE}?text=${WA_DIAGNOSTICO}`} target="_blank" rel="noopener noreferrer" className="w-9 h-9 border border-[#0c1427]/15 flex items-center justify-center hover:border-[#0c1427]/50 transition-colors" aria-label="WhatsApp">
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-[#45474c] stroke-[1.5]">
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
               </a>
-              <a
-                href="#"
-                className="w-9 h-9 border border-[#0c1427]/15 flex items-center justify-center hover:border-[#0c1427]/50 transition-colors"
-                aria-label="LinkedIn"
-              >
+              <a href="#" className="w-9 h-9 border border-[#0c1427]/15 flex items-center justify-center hover:border-[#0c1427]/50 transition-colors" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-[#45474c] stroke-[1.5]">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" />
                 </svg>
@@ -79,9 +64,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {['Derecho Civil', 'Derecho Penal', 'Derecho Laboral y SST', 'Amparos Policivos', 'Derecho de Familia', 'Derecho Comercial'].map((item) => (
                 <li key={item}>
-                  <a href="#servicios" className="text-[13px] text-[#45474c] hover:text-[#0c1427] transition-colors font-light">
-                    {item}
-                  </a>
+                  <a href="#juridico" className="text-[13px] text-[#45474c] hover:text-[#0c1427] transition-colors font-light">{item}</a>
                 </li>
               ))}
             </ul>
@@ -93,9 +76,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {['Geotecnia y Suelos', 'Gestión Ambiental', 'Infraestructura Vial', 'Peritajes Técnicos', 'Avalúos Judiciales', 'Avalúos Comerciales'].map((item) => (
                 <li key={item}>
-                  <a href="#ingenieria" className="text-[13px] text-[#45474c] hover:text-[#0c1427] transition-colors font-light">
-                    {item}
-                  </a>
+                  <a href="#ingenieria" className="text-[13px] text-[#45474c] hover:text-[#0c1427] transition-colors font-light">{item}</a>
                 </li>
               ))}
             </ul>
@@ -109,16 +90,16 @@ export default function Footer() {
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-[#45474c] stroke-[1.5] mt-0.5 shrink-0">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z" />
                 </svg>
-                <a href="tel:+573000000000" className="text-[13px] text-[#45474c] hover:text-[#0c1427] transition-colors font-light">
-                  + (57) 300 000 0000
+                <a href="tel:+573174685371" className="text-[13px] text-[#45474c] hover:text-[#0c1427] transition-colors font-light">
+                  +57 317 468 5371
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-[#45474c] stroke-[1.5] mt-0.5 shrink-0">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
                 </svg>
-                <a href="mailto:info@ar-abogadoseingenieros.com" className="text-[13px] text-[#45474c] hover:text-[#0c1427] transition-colors font-light break-all">
-                  info@ar-abogadoseingenieros.com
+                <a href="mailto:arabogadoseingenieros@gmail.com" className="text-[13px] text-[#45474c] hover:text-[#0c1427] transition-colors font-light break-all">
+                  arabogadoseingenieros@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -130,16 +111,6 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
-
-            {/* CTA */}
-            <a
-              href={`${WHATSAPP_BASE}?text=${WA_DIAGNOSTICO}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-6 bg-[#0c1427] text-white font-mono text-[10px] uppercase tracking-widest px-5 py-3 hover:bg-[#21283c] transition-colors"
-            >
-              Solicitar consulta
-            </a>
           </div>
         </div>
 

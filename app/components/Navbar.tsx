@@ -3,19 +3,43 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { WHATSAPP_BASE, WA_ASESORIA } from '../libs/contacto';
 
 const NAV_ITEMS = [
-  { label: 'Inicio',              href: '#inicio' },
-  { label: 'La Firma',            href: '#nosotros' },
-  { label: 'Servicios Jurídicos', href: '#juridico' },
-  { label: 'Ingeniería',          href: '#ingenieria' },
-  { label: 'Avalúos',             href: '#avaluos' },
-  { label: 'Contacto',            href: '#contacto' },
+  { label: 'Inicio',              href: 'inicio' },
+  { label: 'La Firma',            href: 'nosotros' },
+  { label: 'Servicios Jurídicos', href: 'juridico' },
+  { label: 'Ingeniería',          href: 'ingenieria' },
+  { label: 'Avalúos',             href: 'avaluos' },
+  { label: 'Contacto',            href: 'contacto' },
 ];
 
 const LIGHT_SECTIONS = ['nosotros', 'juridico', 'experticia', 'avaluos'];
+
+// Función de scroll suave con easing personalizado
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - 80;
+  const start = window.scrollY;
+  const distance = top - start;
+  const duration = 800;
+  let startTime: number | null = null;
+
+  function easeInOutCubic(t: number) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function step(timestamp: number) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + distance * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,6 +69,12 @@ export default function Navbar() {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset';
     return () => { document.body.style.overflow = 'unset'; };
   }, [mobileMenuOpen]);
+
+  function handleNavClick(item: { label: string; href: string }) {
+    setActive(item.label);
+    setMobileMenuOpen(false);
+    scrollToSection(item.href);
+  }
 
   return (
     <>
@@ -88,7 +118,9 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Link href="#inicio" className="flex items-center gap-3 group">
+
+            {/* Logo */}
+            <button onClick={() => handleNavClick({ label: 'Inicio', href: 'inicio' })} className="flex items-center gap-3 group">
               <div className="w-10 h-10 flex items-center justify-center rounded-sm shadow-lg transition-transform duration-300 group-hover:scale-105" style={{ background: 'var(--ayr-gold)' }}>
                 <span className="text-xs font-black" style={{ color: 'var(--ayr-blue-dark)' }}>A&R</span>
               </div>
@@ -96,14 +128,14 @@ export default function Navbar() {
                 <motion.div className="text-xl font-bold" animate={{ color: isOverLightSection ? '#0a2342' : '#ffffff' }} transition={{ duration: 0.2 }}>A&R</motion.div>
                 <motion.div className="text-[9px] tracking-[0.18em] uppercase font-semibold -mt-0.5" animate={{ color: isOverLightSection ? '#6b7280' : 'var(--ayr-gold)' }} transition={{ duration: 0.2 }}>Abogados e Ingenieros</motion.div>
               </div>
-            </Link>
+            </button>
 
+            {/* Nav items desktop */}
             <div className="hidden lg:flex items-center gap-8">
               {NAV_ITEMS.map((item) => (
-                <Link
+                <button
                   key={item.label}
-                  href={item.href}
-                  onClick={() => setActive(item.label)}
+                  onClick={() => handleNavClick(item)}
                   className="relative text-sm font-medium tracking-wide py-2 transition-colors duration-200 group"
                 >
                   <motion.span
@@ -112,8 +144,15 @@ export default function Navbar() {
                   >
                     {item.label}
                   </motion.span>
-                  <span className={`absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ${active === item.label ? 'w-full' : 'w-0 group-hover:w-full'}`} style={{ background: 'var(--ayr-gold)' }} />
-                </Link>
+                  {/* Underline animado */}
+                  <motion.span
+                    className="absolute -bottom-1 left-0 h-[2px]"
+                    style={{ background: 'var(--ayr-gold)' }}
+                    initial={false}
+                    animate={{ width: active === item.label ? '100%' : '0%' }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  />
+                </button>
               ))}
 
               <a
@@ -129,6 +168,7 @@ export default function Navbar() {
               </a>
             </div>
 
+            {/* Botón hamburguesa */}
             <button
               className="lg:hidden p-2 rounded-md transition-colors duration-200"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -143,12 +183,14 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
+      {/* Overlay móvil */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden" />
         )}
       </AnimatePresence>
 
+      {/* Menú móvil */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -176,16 +218,15 @@ export default function Navbar() {
               <nav className="space-y-1">
                 {NAV_ITEMS.map((item, index) => (
                   <motion.div key={item.label} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.25, delay: index * 0.04 }}>
-                    <Link
-                      href={item.href}
-                      onClick={() => { setActive(item.label); setMobileMenuOpen(false); }}
-                      className="group flex items-center justify-between py-4 px-4 rounded-lg transition-colors duration-200 relative overflow-hidden"
+                    <button
+                      onClick={() => handleNavClick(item)}
+                      className="group w-full flex items-center justify-between py-4 px-4 rounded-lg transition-colors duration-200 relative overflow-hidden"
                       style={{ color: active === item.label ? 'var(--ayr-gold)' : 'white' }}
                     >
                       <span className="relative z-10 font-medium text-base tracking-wide transition-transform duration-200 group-hover:translate-x-2">{item.label}</span>
                       <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 relative z-10" style={{ color: 'var(--ayr-gold)' }} />
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ background: 'rgba(201,169,97,0.08)' }} />
-                    </Link>
+                    </button>
                   </motion.div>
                 ))}
               </nav>

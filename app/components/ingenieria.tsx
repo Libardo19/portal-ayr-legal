@@ -98,7 +98,7 @@
 
     export default function Ingenieria() {
     return (
-        // ✅ bg-white restaurado, sin overflow-hidden
+        //  bg-white restaurado, sin overflow-hidden
         <section id="ingenieria" className="relative bg-white">
 
         {/* Grid overlay */}
@@ -122,17 +122,11 @@
 
         {/* Hero */}
         <div className="relative z-20 px-14 pt-28 pb-14 max-w-[1120px] mx-auto">
-            <div className="absolute top-28 right-14 border border-[#c9a84c]/25 rounded-lg px-5 py-4 bg-[#0a1628] animate-[fadeIn_0.6s_1.4s_both]">
-            <p className="font-mono text-[9px] text-[#4a6a8a] tracking-[2px] mb-2">// Sistema activo</p>
-            <p className="font-mono text-xl font-bold text-[#e8c96a]">ISO 9001</p>
-            <p className="text-[11px] text-[#4a6a8a] mt-1">Certificación 2015 · Vigente</p>
-            </div>
-
+            
             <div className="flex items-center gap-4 mb-10 animate-[fadeUp_0.5s_0.6s_both]">
             <span className="w-2 h-2 rounded-full bg-[#c9a84c] animate-pulse" />
-            <span className="font-mono text-[10px] text-[#c9a84c] tracking-[2px] uppercase">Ingeniería · A&amp;R</span>
-            <span className="flex-1 h-px bg-[#c9a84c]/30" />
-            <span className="font-mono text-[10px] text-[#4a6a8a] tracking-[1px]">SYS_ENG · V2.0</span>
+            <span className="font-mono text-[15px] text-[#c9a84c] tracking-[2px] uppercase">Ingeniería · A&amp;R</span>
+            
             </div>
 
             <h2 className="text-[62px] font-bold leading-none animate-[fadeUp_0.7s_0.8s_both]">
@@ -188,10 +182,10 @@
                 className="bg-[#0a1628] px-7 py-8 cursor-pointer hover:bg-[#0e1e35] transition-colors group"
                 style={{ animation: `fadeUp 0.5s ${1.6 + i * 0.15}s both` }}
                 >
-                <p className="font-mono text-[10px] text-[#4a6a8a] tracking-[2px] mb-5">{s.num}</p>
+                <p className="font-mono text-[10px] text-[#C8A75D] tracking-[2px] mb-5">{s.num}</p>
                 <div className="mb-4">{s.icon}</div>
-                <h4 className="text-[15px] font-semibold text-[#e8f0f8] mb-2 leading-snug">{s.name}</h4>
-                <p className="text-[12px] text-[#4a6a8a] leading-relaxed">{s.desc}</p>
+                <h4 className="text-[15px] font-semibold text-[#C8A75D] mb-2 leading-snug">{s.name}</h4>
+                <p className="text-[12px] text-white leading-relaxed">{s.desc}</p>
                 <div className="flex items-center gap-1.5 mt-5 text-[10px] font-bold tracking-[2px] uppercase text-[#c9a84c] opacity-0 group-hover:opacity-100 transition-opacity">
                     Ver más
                     <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 stroke-[#c9a84c] fill-none stroke-2">
@@ -207,7 +201,7 @@
         <div
             className="absolute bottom-0 left-0 w-full pointer-events-none z-50"
             style={{
-            height: "160px",
+            height: "160px",    
             background: "linear-gradient(to bottom, transparent 0%, #060f1a 100%)",
             }}
         />
