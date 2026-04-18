@@ -40,8 +40,10 @@
     ];
 
     const bracketPos: Record<BracketKey, string> = {
-    tl: "top-8 left-8", tr: "top-8 right-8",
-    bl: "bottom-8 left-8", br: "bottom-8 right-8",
+    tl: "top-4 left-4 md:top-8 md:left-8",
+    tr: "top-4 right-4 md:top-8 md:right-8",
+    bl: "bottom-4 left-4 md:bottom-8 md:left-8",
+    br: "bottom-4 right-4 md:bottom-8 md:right-8",
     };
     const bracketDelays: Record<BracketKey, { v: number; h: number }> = {
     tl: { v: 0.3, h: 0.5 }, tr: { v: 0.4, h: 0.6 },
@@ -69,9 +71,9 @@
     const ref = useRef<HTMLDivElement>(null);
     useCountUp(ref, target, suffix, delay);
     return (
-        <div className="pr-9 mr-9 border-r border-[#c9a84c]/20 last:border-r-0 last:mr-0 last:pr-0">
-        <div ref={ref} className="font-mono text-[34px] font-bold text-[#c9a84c] leading-none">0</div>
-        <div className="text-[11px] text-[#4a6a8a] uppercase tracking-[2px] mt-1">{label}</div>
+        <div className="pr-6 mr-6 md:pr-9 md:mr-9 border-r border-[#c9a84c]/20 last:border-r-0 last:mr-0 last:pr-0">
+        <div ref={ref} className="font-mono text-2xl md:text-[34px] font-bold text-[#c9a84c] leading-none">0</div>
+        <div className="text-[10px] text-[#4a6a8a] uppercase tracking-[2px] mt-1">{label}</div>
         </div>
     );
     }
@@ -89,7 +91,7 @@
             ...(isLeft ? { left: 0 } : { right: 0 }),
             };
             return (
-            <div key={k} className={`absolute w-9 h-9 z-30 ${bracketPos[k]}`}>
+            <div key={k} className={`absolute w-7 h-7 md:w-9 md:h-9 z-30 ${bracketPos[k]}`}>
                 <div className="absolute bg-[#c9a84c]" style={{ width: "2px", height: 0, ...edge, animation: `growH 0.4s ${v}s forwards` }} />
                 <div className="absolute bg-[#c9a84c]" style={{ height: "2px", width: 0,  ...edge, animation: `growW 0.4s ${h}s forwards` }} />
             </div>
@@ -112,26 +114,31 @@
 
         <Brackets />
 
-        <div className="relative z-10 px-14 pt-20 pb-14 max-w-[1120px] mx-auto">
-           
+        {/* ── Hero ── */}
+        <div className="relative z-10 px-5 sm:px-8 md:px-14 pt-20 md:pt-20 pb-8 md:pb-14 max-w-[1120px] mx-auto">
 
-            <div className="flex items-center gap-4 mb-10 animate-[fadeUp_0.5s_0.6s_both]">
+            <div className="flex items-center gap-3 mb-6 md:mb-10 animate-[fadeUp_0.5s_0.6s_both]">
             <span className="w-2 h-2 rounded-full bg-[#c9a84c] animate-pulse" />
-            <span className="font-mono text-[15px] text-[#c9a84c] tracking-[2px] uppercase">Avalúos · A&amp;R</span>
+            <span className="font-mono text-[12px] md:text-[15px] text-[#c9a84c] tracking-[2px] uppercase">Avalúos · A&amp;R</span>
             </div>
 
-            <h2 className="text-[62px] font-bold leading-none text-[#e8f0f8] animate-[fadeUp_0.7s_0.8s_both]">
+            {/* Título fluido */}
+            <h2
+            className="font-bold leading-none text-[#e8f0f8] animate-[fadeUp_0.7s_0.8s_both]"
+            style={{ fontSize: 'clamp(2rem, 7vw, 62px)' }}
+            >
             <span className="block">Cada bien tiene</span>
             <span className="block" style={{ color: "transparent", WebkitTextStroke: "1.5px #c9a84c" }}>un valor exacto.</span>
             <span className="block text-[#c9a84c]">Nosotros lo probamos.</span>
             </h2>
 
-            <p className="text-[14px] text-[#8aaac8] leading-[1.7] max-w-[520px] mt-5 animate-[fadeUp_0.6s_1.1s_both]">
+            <p className="text-[13px] md:text-[14px] text-[#8aaac8] leading-[1.7] max-w-[520px] mt-4 md:mt-5 animate-[fadeUp_0.6s_1.1s_both]">
             Ingeniería de avalúos en 13 categorías con validez judicial, comercial y financiera. El informe técnico que respalda su decisión o su defensa.
             </p>
         </div>
 
-        <div className="relative z-10 px-14 max-w-[1120px] mx-auto animate-[fadeUp_0.7s_1.5s_both]">
+        {/* ── Tech line SVG — oculto en móvil ── */}
+        <div className="hidden md:block relative z-10 px-14 max-w-[1120px] mx-auto animate-[fadeUp_0.7s_1.5s_both]">
             <svg width="100%" viewBox="0 0 980 60" xmlns="http://www.w3.org/2000/svg">
             <line x1="0" y1="30" x2="980" y2="30" stroke="rgba(201,168,76,0.15)" strokeWidth="1" />
             <circle cx="0" cy="30" r="3" fill="#c9a84c" opacity="0.4" />
@@ -154,45 +161,77 @@
             </svg>
         </div>
 
-        {/* ✅ pb-40 para dar espacio a la sombra bottom */}
-        <div className="relative z-10 px-14 max-w-[1120px] mx-auto pb-40">
-            <p className="font-mono text-[10px] text-white tracking-[3px] uppercase mb-5">// Categorías de valoración</p>
-            <div className="grid grid-cols-4" style={{ gap: "1px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.1)", borderRadius: "12px 12px 0 0", overflow: "hidden" }}>
+        {/* Divisor simple para móvil */}
+        <div className="md:hidden relative z-10 mx-5 my-4 h-px bg-[#c9a84c]/20" />
+
+        {/* ── Contenido principal ── */}
+        <div className="relative z-10 px-5 sm:px-8 md:px-14 max-w-[1120px] mx-auto pb-40">
+
+            <p className="font-mono text-[10px] text-white tracking-[3px] uppercase mb-4 md:mb-5">// Categorías de valoración</p>
+
+            {/* Categorías — carousel móvil / grid tablet-desktop */}
+            <div className="flex md:hidden gap-3 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none -mx-5 px-5">
             {categories.map((c, i) => (
-                <div key={i} className="bg-[#0a1628] px-5 py-6 cursor-pointer hover:bg-[#0e1e35] transition-colors" style={{ animation: `fadeUp 0.4s ${1.7 + i * 0.1}s both` }}>
-                <p className="font-mono text-[9px] text-white tracking-[2px] mb-3">{c.num}</p>
+                <div
+                key={i}
+                className="snap-start shrink-0 w-[60vw] max-w-[220px] bg-[#0a1628] rounded-xl px-4 py-5 border border-[#c9a84c]/10"
+                style={{ animation: `fadeUp 0.4s ${1.2 + i * 0.07}s both` }}
+                >
+                <p className="font-mono text-[9px] text-white/50 tracking-[2px] mb-3">{c.num}</p>
+                <p className="text-[13px] font-semibold text-white leading-snug mb-3">{c.name}</p>
+                <span className="font-mono text-[9px] text-[#c9a84c] bg-[#c9a84c]/10 px-2 py-1 rounded tracking-[1px]">{c.tag}</span>
+                </div>
+            ))}
+            </div>
+
+            {/* Grid tablet 2 col / desktop 4 col */}
+            <div
+            className="hidden md:grid md:grid-cols-2 lg:grid-cols-4"
+            style={{ gap: "1px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.1)", borderRadius: "12px 12px 0 0", overflow: "hidden" }}
+            >
+            {categories.map((c, i) => (
+                <div
+                key={i}
+                className="bg-[#0a1628] px-5 py-6 cursor-pointer hover:bg-[#0e1e35] transition-colors"
+                style={{ animation: `fadeUp 0.4s ${1.7 + i * 0.1}s both` }}
+                >
+                <p className="font-mono text-[9px] text-white/50 tracking-[2px] mb-3">{c.num}</p>
                 <p className="text-[13px] font-semibold text-white leading-snug mb-2">{c.name}</p>
                 <span className="font-mono text-[9px] text-[#c9a84c] bg-[#c9a84c]/10 px-2 py-1 rounded tracking-[1px]">{c.tag}</span>
                 </div>
             ))}
             </div>
-            <div className="grid grid-cols-2" style={{ gap: "1px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.1)", borderTop: "none", borderRadius: "0 0 12px 12px", overflow: "hidden", animation: "fadeUp 0.5s 2.5s both" }}>
+
+            {/* Wide cells — stack en móvil / 2 col en desktop */}
+            <div
+            className="grid grid-cols-1 md:grid-cols-2 mt-3 md:mt-0"
+            style={{ gap: "1px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.1)", borderTop: "none", borderRadius: "0 0 12px 12px", overflow: "hidden", animation: "fadeUp 0.5s 2.5s both" }}
+            >
             {wideCells.map((w, i) => (
-                <div key={i} className="bg-[#0e1e35] px-7 py-7 flex items-center gap-5">
-                <div className="shrink-0 w-10 h-10 border border-[#c9a84c]/20 rounded-lg flex items-center justify-center">{w.icon}</div>
+                <div key={i} className="bg-[#0e1e35] px-5 py-5 md:px-7 md:py-7 flex items-start md:items-center gap-4 md:gap-5">
+                <div className="shrink-0 w-9 h-9 md:w-10 md:h-10 border border-[#c9a84c]/20 rounded-lg flex items-center justify-center mt-0.5 md:mt-0">
+                    {w.icon}
+                </div>
                 <div>
-                    <p className="text-[14px] font-semibold text-white mb-1">{w.title}</p>
-                    <p className="text-[12px] text-white leading-relaxed">{w.desc}</p>
+                    <p className="text-[13px] md:text-[14px] font-semibold text-white mb-1">{w.title}</p>
+                    <p className="text-[12px] text-white/70 leading-relaxed">{w.desc}</p>
                 </div>
                 </div>
             ))}
             </div>
-
-        
         </div>
 
-        {/* ✅ Sombra bottom → fusión hacia el Footer blanco */}
+        {/* Sombra bottom */}
         <div
             className="absolute bottom-0 left-0 w-full pointer-events-none z-50"
-            style={{
-            height: "160px",
-            background: "linear-gradient(to bottom, transparent 0%, #ffffff 100%)",
-            }}
+            style={{ height: "160px", background: "linear-gradient(to bottom, transparent 0%, #ffffff 100%)" }}
         />
 
         <style>{`
             @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
             @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+            .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+            .scrollbar-none::-webkit-scrollbar { display: none; }
         `}</style>
         </section>
     );
