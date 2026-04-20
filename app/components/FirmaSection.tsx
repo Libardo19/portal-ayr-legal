@@ -78,23 +78,13 @@ export default function FirmaSection() {
     <section
       ref={sectionRef}
       id="nosotros"
-      className="relative overflow-hidden bg-[#f7f9fb]"
+      // ✅ overflow-hidden eliminado para que el gradiente bottom no quede recortado
+      className="relative bg-[#f7f9fb]"
       style={{
         backgroundImage: `linear-gradient(to right, rgba(197,198,205,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(197,198,205,0.12) 1px, transparent 1px)`,
         backgroundSize: '40px 40px',
       }}
     >
-
-      {/* ✅ Sombra bottom → fusión hacia la sección siguiente (oscura #0c1427) — ya existía, corregida */}
-      <div
-        className="absolute bottom-0 left-0 w-full pointer-events-none z-10"
-        style={{
-          height: '160px',
-          background: 'linear-gradient(to bottom, transparent 0%, #0c1427 100%)',
-        }}
-      />
-
-      {/* ✅ pb y pt generosos para que las sombras no tapen el contenido */}
       <div className="container mx-auto px-4 sm:px-6 md:px-12 py-32 sm:py-40 relative z-20">
         <motion.div
           variants={containerVariants}
@@ -132,8 +122,6 @@ export default function FirmaSection() {
               <Counter value={200} suffix="+" label="Proyectos Ejecutados" delay={0.2} />
               <Counter value={500} suffix="+" label="Casos Resueltos" delay={0.3} />
             </motion.div>
-
-            
           </div>
 
           <div className="w-full md:w-[40%] relative hidden sm:block">
@@ -175,6 +163,12 @@ export default function FirmaSection() {
           A&R LEGAL & ENGINEERING // PROPERTY RIGHTS
         </span>
       </div>
+
+      {/* ✅ Misma transición del Hero — funde suavemente hacia la sección oscura siguiente */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-32 z-20 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, rgba(247,249,251,0.85) 0%, rgba(247,249,251,0.3) 40%, transparent 100%)' }}
+      />
     </section>
   );
 }

@@ -40,7 +40,7 @@ const SERVICIOS = [
   {
     id: '05',
     titulo: 'Amparos Policivos',
-    descripcion: 'Protección inmediata de posesión y tenencia. Tramitamos querellas policivas para proteger la posesión, mera tenencia y ocupación de bienes inmuebles ante perturbaciones o despojos.',
+    descripcion: 'Tramitamos querellas policivas para proteger la posesión, mera tenencia y ocupación de bienes inmuebles ante perturbaciones o despojos.',
     ref: 'SEC-POL.2024',
     waMsg: encodeURIComponent('Hola, necesito asesoría en Amparos Policivos con A&R Abogados e Ingenieros.'),
   },
@@ -147,17 +147,19 @@ export default function ServiciosJuridicosSection() {
         }}
       />
 
+      {/*  Gradiente TOP  */}
       <div
-        className="absolute top-0 left-0 w-full h-32 pointer-events-none z-10"
-        style={{ background: 'linear-gradient(to bottom, #0a1628 0%, rgba(10,22,40,0.5) 40%, transparent 100%)' }}
+        className="absolute top-0 left-0 w-full h-40 pointer-events-none z-10"
+        style={{ background: 'linear-gradient(to bottom, #f7f9fb 0%, rgba(247,249,251,0.5) 40%, transparent 100%)' }}
       />
 
+      {/* Gradiente BOTTOM  */}
       <div
         className="absolute bottom-0 left-0 w-full h-48 pointer-events-none z-10"
         style={{ background: 'linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.2) 60%, transparent 100%)' }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-20 relative z-20">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 pt-30 pb-50 md:pb-20 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
